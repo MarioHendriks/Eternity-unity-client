@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UIhandler : MonoBehaviour
+public class UI_Manager : MonoBehaviour
 {
     public TextMeshProUGUI NameUI;
     public PlayerData PlayerData;
@@ -19,18 +19,4 @@ public class UIhandler : MonoBehaviour
             PlayerData.SendToServer(ws);
         }
     }
-
-    public void RegisterSocketToClient()
-    {
-        WsMessage ws = new WsMessage();
-        ws.Action = "Register";
-
-        User user = new User();
-        user.username = "Mario";
-
-        ws.Content = user;
-
-        PlayerData.SendToServer(ws);
-    }
-
 }
